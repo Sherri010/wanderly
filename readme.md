@@ -1,14 +1,34 @@
-# Production Setup
-## Node Setup
-- npm init -y
-- npm install --save express
-- touch .gitignore
-- npm install --save mongoose
-- npm install --save body-parser
+# Project URL
+http://wanderly.herokuapp.com/
 
-## MongoDB Setup
-- brew install mongodb
-- mongod
+# Technologies
+### Front End
+- JavaScript
+- jQuery
+- HTML5/CSS3
+- Bootstrap
+- Handlebars
+
+### Back End
+- Node
+- Express
+- Mongo
+- Mongoose
+
+# Production Setup
+### Node Setup
+``` 
+npm init -y
+npm install --save express
+npm install --save mongoose
+npm install --save body-parser
+touch .gitignore
+```
+### MongoDB Setup
+```
+brew install mongodb
+mongod
+```
 
 #Project Roadmap
     ##Planning
