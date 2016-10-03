@@ -3,17 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Wanderly</title>
+  <title>Wanderly</title>
 
   <link href="https://fonts.googleapis.com/css?family=Lobster+Two:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/css/bootstrap-modal.min.css">
-  <link rel="stylesheet" href="/styles/styles.css">
-  <!-- <link rel="icon" href="https://dailydropcap.com/images/W-9.jpg"> -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="icon" href="http://dailydropcap.com/images/W-9.jpg">
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 </head>
   <body>
     <div>
@@ -21,6 +19,7 @@
       <div id="userSelection">
         <form  id="userForm">
           <select name="userList" id="userList">
+           <option value="no user">author &#9663;</option>
            <script id="user-template" type="text/x-handlebars-template">
             {{#each User}}
               <option value="{{name}}">{{name}}</option>
@@ -86,32 +85,27 @@
       <script id="updateForm" type="text/x-handlebars-template">
         <form class="form-horizantal col-md-offset-2 col-md-8" id="update-experience-form" data-edit-id="{{_id}}">
           <div class="form-group">
-            <label class="control-label col-sm-2" for="title" >Title:</label>
+            <label class="control-label col-sm-2" for="title">Title:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="title" value="{{title}}" required>
+              <input type="text" class="form-control" id="ttl" name="title" value="{{title}}" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="date" >Date:</label>
+            <label class="control-label col-sm-2" for="date">Date:</label>
             <div class="col-sm-10">
-              <input type="date" class="form-control" name="date" value="{{date}}" required>
+              <input type="date" class="form-control" id="date" name="date" value="{{date}}" required>
             </div>
           </div>
           <div class="form-group">
+            <label class="control-label col-sm-2" for="image">Image:</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control userName" name="author" value="{{author}}">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="image" >Image:</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="image" value="{{image}}" required>
+              <input type="text" class="form-control" id="image" name="image" value="{{image}}" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="note">Note:</label>
             <div class="col-sm-10">
-              <textarea  class="form-control" name="note" >{{note}}</textarea>
+              <textarea  class="form-control" id="note" name="note" required>{{note}}</textarea>
             </div>
           </div>
          <div class="checkbox">
@@ -127,6 +121,9 @@
             <div class="col-sm-10">
               <input type="text"  class="lng" name="lng" value="{{coordinates.lng}}">
             </div>
+          <div class="form-group">
+            <input type="text" class="form-control userName" name="author" value="{{author}}">
+          </div>
         </form>
       </script>
     </div>
@@ -178,10 +175,11 @@
       </ul>
     </footer>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <script src="/scripts/validate.js"></script>
-    <script src="/scripts/app.js"></script>
+    <script src="scripts/validate.js"></script>
+    <script src="scripts/app.js"></script>
     <script src="https://use.fontawesome.com/7b050a501f.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
   </body>

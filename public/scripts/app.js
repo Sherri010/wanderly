@@ -100,6 +100,15 @@ $(document).ready(function(){
 
   $('#editSpace').on('click','#submit-edits', function(e){
     e.preventDefault();
+    var lengthList = [];
+    lengthList.push($('#ttl').val().length );
+    lengthList.push($('#date').val().length);
+    lengthList.push($('#image').val().length);
+    lengthList.push($('#note').val().length);
+    if (lengthList.indexOf(0) != -1 ) {
+      alert("Make sure you filled out the form!");
+     }
+    else{
     var updateExperience = getFormData($('#update-experience-form'));
     console.log("edited info",updateExperience)
     var editId = $(this).closest('form#update-experience-form').attr('data-edit-id');
@@ -129,6 +138,7 @@ $(document).ready(function(){
         listenerHandle.remove();
       }
     });
+  }
   });
 
   //event listener for closing the edit form
