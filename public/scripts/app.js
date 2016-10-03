@@ -63,7 +63,6 @@ $(document).ready(function(){
 
   $('#experience-form').on('submit', function(e) {
     e.preventDefault();
-
     var isvalidate=$("#experience-form").valid();
     if(!isvalidate) {
       e.preventDefault();
