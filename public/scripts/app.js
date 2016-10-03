@@ -63,30 +63,41 @@ $(document).ready(function(){
 
   $('#experience-form').on('submit', function(e) {
     e.preventDefault();
-    $('#experience-form').find('.userName').val(currentUser);
-    console.log( $('#experience-form').find('.userName').val());
-    var newExperience = getFormData(this);
-    $.ajax({
-      method: "POST",
-      url: 'api/experiences',
-      data: newExperience,
-      success: function onCreateSuccess(json) {
-        allExperiences.push(json);
-        console.log("all: ",allExperiences);
-        render(allExperiences);
-        $('#new-entry').slideToggle('slow');
-        $('#experience-form')[0].reset();
-        listenerHandle.remove();
-      }
-    });
+
+    var isvalidate=$("#experience-form").valid();
+    if(!isvalidate) {
+      e.preventDefault();
+      console.log('it was wrong')
+    }
+
+    else {
+      $('#experience-form').find('.userName').val(currentUser);
+      console.log( $('#experience-form').find('.userName').val());
+      var newExperience = getFormData(this);
+      $.ajax({
+        method: "POST",
+        url: 'api/experiences',
+        data: newExperience,
+        success: function onCreateSuccess(json) {
+          allExperiences.push(json);
+          console.log("all: ",allExperiences);
+          render(allExperiences);
+          $('#new-entry').slideToggle('slow');
+          $('#experience-form')[0].reset();
+          listenerHandle.remove();
+        }
+      });
+    };
   });
 
   //event listener for
   $('#new-entry').on('click','.cancel', function(e){
     $('#new-entry').toggle(false);
     $('#experience-form')[0].reset();
+    experienceValidHandler.resetForm();
     listenerHandle.remove();
   });
+
 
   $('#editSpace').on('click','#submit-edits', function(e){
     e.preventDefault();
@@ -204,6 +215,7 @@ function getUsersGroup(){
       var userFormHtml = template({ User : data });
       $('#userList').append(userFormHtml);
       userGroup = data;
+      currentUser = userGroup[0];
     }
   })
 
@@ -243,7 +255,9 @@ function initialize(){
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 2,
     center: initLocation,
-    mapTypeId:'satellite'
+    mapTypeId:'satellite',
+    scaleControl: true,
+    scrollwheel: false
   });
 }
 
@@ -268,3 +282,4 @@ function setMapOnAll(map) {
     markers[i].setMap(map);
   }
 }
+
