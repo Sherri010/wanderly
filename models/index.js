@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/wanderly');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/wanderly');
 
 var Experience = require('./experiences');
 module.exports.Experience = Experience;
