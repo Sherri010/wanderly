@@ -12,7 +12,51 @@ app.get('/', function homepage (req, res){
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
+app.get('/api', function homepage (req, res){
+ var endPoints = {
+     message: "Welcome to Wanderly!",
+     documentationURL : "https://github.com/Sherri010/wanderly/blob/master/readme.md",
+     baseUrl : "https://wanderly.herokuapp.com/",
+     endpoints:[
+      {
+        method:"GET",
+        path:"/api",
+        desc: "Describes the available end points"
+      },
+      {
+        method: "GET",
+        path: "/api/users",
+        desc: "returns all users in the group"
+      },
+      {
+        method: "GET",
+        path : "/api/experiences",
+        desc: "returns all the experiences"
+      },
+      {
+        method: "GET",
+        path: "/api/experiences/:id",
+        desc: "returns a specfic experience"
+      },
+      {
+        method: "POST",
+        path: "/api/experiences/",
+        desc: "adds a new experience"
+      },
+      {
+        method: "PUT",
+        path: "/api/experiences/:id",
+        desc: "updates an existing experience"
+      },
+      {
+        method : "DELETE",
+        path: "/api/experiences/:id",
+        desc: "removes an existing experience"
+      }
+     ]
+ }
+ res.json(endPoints);
+});
 ///user
 
 app.get('/api/users/',function (req,res){
