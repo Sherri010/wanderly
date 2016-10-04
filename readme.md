@@ -4,6 +4,12 @@ An application for sharing your adventures with your friends.
 # Project URL
 http://wanderly.herokuapp.com/
 
+# Project API End Points
+<br>
+http://wanderly.herokuapp.com/api
+<br>
+<img src="http://i.imgur.com/EA9spQv.png" width="350">
+
 # Technologies
 ### Front End
 - JavaScript
