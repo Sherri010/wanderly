@@ -41,7 +41,10 @@ mongod
     - user can drops pin as part of creating experience
     - user can update an existing experience
     - user can delete an existing experience
-- wireframe
+- wireframe 
+<br>
+<img src="http://i.imgur.com/vtlIUsi.jpg" width="350">
+
 - model design
 
 ```
@@ -76,7 +79,7 @@ users
     {
         name: String,
         image: String,
-        marker:String
+        marker: String
     }
 ```
 #### Adds Validation
