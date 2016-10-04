@@ -68,6 +68,7 @@ $(document).ready(function(){
           allExperiences.push(json);
           console.log("all: ",allExperiences);
           render(allExperiences);
+          setMapOnAll(null);
           customizeMarkers(allExperiences);
           $('#new-entry').slideToggle('slow');
           $('#experience-form')[0].reset();
