@@ -1,3 +1,6 @@
+# Wanderly: Project Description
+An application for sharing your adventures with your friends.
+
 # Project URL
 http://wanderly.herokuapp.com/
 
@@ -29,36 +32,58 @@ touch .gitignore
 brew install mongodb
 mongod
 ```
+# Project Roadmap
+## Planning
+- idea development
+- user stories
+    - user can see all previously created experiences
+    - user can create a new experience
+    - user can drops pin as part of creating experience
+    - user can update an existing experience
+    - user can delete an existing experience
+- wireframe
+- model design
 
-#Project Roadmap
-    ##Planning
-    - idea development
-    - user stories
-        - user can
-    - wireframe
-    - model design
-        - exeriences
-            {
-            title: string,
-            date: date,
-            coordinates: [lat, long],
-            image: string,
-            author: string,
-            note: text,
-            bucketList: boolean
-            }
-
-#Phase 1 MVP
-###basic functionality to support user stories
-- only includes experience model
-
-#Phase 2
-###style to support responsive mobile and appearance
-
-#Phase 3
-###adds user model
+```
+experiences
     {
-        name: string,
-        img: string,
-        stories: [experience._id]
+        title: string,
+        date: date,
+        coordinates: [lat, long],
+        image: string,
+        author: string,
+        note: text,
+        bucketList: boolean
     }
+```
+
+# Phase 1 MVP
+### Back End
+- create and seed database
+- set up server with routes
+
+### Front End
+- create ajax calls for CRUDing
+- create view for showing data, utilizing google.map API
+
+# Phase 2
+- style to support responsive mobile and appearance
+
+# Phase 3
+#### Adds User Model
+```
+users
+    {
+        name: String,
+        image: String,
+        marker:String
+    }
+```
+#### Adds Validation
+
+# Future Features
+- sort entries by update date
+- add login and privacy functionality
+- add a bucket list feature that shows planned adventures
+- customize map markers for each user
+- filter map and experiences by user and location
