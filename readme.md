@@ -79,7 +79,7 @@ users
     {
         name: String,
         image: String,
-        marker:String
+        marker: String
     }
 ```
 #### Adds Validation
