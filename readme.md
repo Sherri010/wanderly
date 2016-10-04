@@ -4,7 +4,7 @@ An application for sharing your adventures with your friends.
 # Project URL
 http://wanderly.herokuapp.com/
 
-# Project API End Points
+## Project API End Points
 <br>
 http://wanderly.herokuapp.com/api
 <br>
