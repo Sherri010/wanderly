@@ -154,3 +154,13 @@ select {
 .userName {
   display: none;
 }
+
+#markerList {
+  list-style: none;
+    text-align: center;
+}
+
+#markerList li {
+  display: inline-block;
+  padding:30px;
+}

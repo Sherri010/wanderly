@@ -9,10 +9,10 @@ $(document).ready(function(){
   console.log('js is ready!');
   // $('#myModal').modal({show: false});
   initialize();
-  getUsersGroup()
+  getUsersGroup();
   var source = $('#experience-handle-bar').html();
   template = Handlebars.compile(source);
-  var LatLng={lat:0,lng:0};
+
 
 
   $("#userList").on('change', function() {
@@ -28,20 +28,7 @@ $(document).ready(function(){
       allExperiences = data;
       window.content = template({Experience : data});
       $('#main').append(content);
-      var imgIcon;
-      for(var key in data){
-        // for(var i=0 ; i<userGroup.length ; i++){
-        //   if(data[i].author === userGroup[i].name){
-        //     console.log(data[i].author,userGroup[i].name)
-        //     imgIcon = userGroup[i].marker;
-        //     console.log(imgIcon)
-        //     break;
-        //   }
-        // }
-        LatLng.lat = data[key].coordinates.lat;
-        LatLng.lng = data[key].coordinates.lng;
-        addMarker(LatLng, map,imgIcon)
-      }
+      customizeMarkers(data);
     }
   });
 
@@ -81,6 +68,7 @@ $(document).ready(function(){
           allExperiences.push(json);
           console.log("all: ",allExperiences);
           render(allExperiences);
+          customizeMarkers(allExperiences);
           $('#new-entry').slideToggle('slow');
           $('#experience-form')[0].reset();
           listenerHandle.remove();
@@ -125,11 +113,7 @@ $(document).ready(function(){
             allExperiences = data;
             render(data);
             setMapOnAll(null);
-            for(var key in data){
-              LatLng.lat = data[key].coordinates.lat;
-              LatLng.lng = data[key].coordinates.lng;
-              addMarker(LatLng, map)
-            }
+            customizeMarkers(data);
           }
         });
         $('#main').toggle(true);
@@ -184,19 +168,16 @@ $(document).ready(function(){
       newLocation.lat = event.latLng.lat();
       newLocation.lng = event.latLng.lng();
       $('.lat').val(newLocation.lat);
-      $('.lng').val(newLocation.lng);
-      console.log("picked: ",newLocation);
+      $('.lng').val(newLocation.lng)
     });
     $('#new-entry-btn').toggle(false);
     $.ajax({
       method: 'GET',
       url: editUrl,
       success: function (json) {
-        console.log(json);
         var source = $('#updateForm').html();
         var updateForm = Handlebars.compile(source);
         var form = updateForm(json);
-        console.log(form);
         $('#main').toggle(false);
         var formHandleBarScript = $('#updateForm');
         $('#editSpace').empty();
@@ -218,25 +199,33 @@ function getUsersGroup(){
     url:"/api/users/",
     data:[],
     success: function (data){
-      console.log(data);
       var source = $('#user-template').html();
       var template = Handlebars.compile(source);
       var userFormHtml = template({ User : data });
       $('#userList').append(userFormHtml);
       userGroup = data;
+      console.log("user list",userGroup)
       currentUser = userGroup[0];
     }
   })
 
-
- //set up the template userForm
-
- //show users
-
-
 }
 
-
+function customizeMarkers(exp){
+ var imgIcon;
+ var LatLng={lat:0,lng:0};
+    for(var key in exp){
+      for(var i=0 ; i<userGroup.length ; i++){
+        if(exp[key].author === userGroup[i].name){
+          imgIcon = userGroup[i].marker;
+          break;
+        }
+      }
+      LatLng.lat = exp[key].coordinates.lat;
+      LatLng.lng = exp[key].coordinates.lng;
+      addMarker(LatLng, map,imgIcon)
+    }
+}
 
 
 function render(data){
