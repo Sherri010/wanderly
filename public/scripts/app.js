@@ -7,7 +7,6 @@ var userGroup=[];
 
 $(document).ready(function(){
   console.log('js is ready!');
-  // $('#myModal').modal({show: false});
   initialize();
   getUsersGroup();
   var user_marker = $('#markerList');
@@ -25,11 +24,6 @@ $(document).ready(function(){
 
         $(all_listed_users[user]).attr('class',classList);
     });
-    // user_marker.children('Sherri').attr('class',currentUser ,' highlight');
-    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
-    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
-    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
-
     user_marker.children('.'+currentUser).attr('class',currentUser +' highlight');
   });
 
