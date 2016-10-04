@@ -164,3 +164,8 @@ select {
   display: inline-block;
   padding:30px;
 }
+
+.highlight {
+  font-size:18px;
+  color:blue;
+}

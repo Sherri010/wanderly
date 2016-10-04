@@ -10,6 +10,7 @@ $(document).ready(function(){
   // $('#myModal').modal({show: false});
   initialize();
   getUsersGroup();
+  var user_marker = $('#markerList');
   var source = $('#experience-handle-bar').html();
   template = Handlebars.compile(source);
 
@@ -17,6 +18,19 @@ $(document).ready(function(){
 
   $("#userList").on('change', function() {
     currentUser = $(this).val();
+    all_listed_users =[];
+    all_listed_users = user_marker.children();
+    all_listed_users.each(function(user){
+      var classList = all_listed_users[user].textContent;
+
+        $(all_listed_users[user]).attr('class',classList);
+    });
+    // user_marker.children('Sherri').attr('class',currentUser ,' highlight');
+    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
+    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
+    // user_marker.children('.'+currentUser).attr('class',currentUser ,' highlight');
+
+    user_marker.children('.'+currentUser).attr('class',currentUser +' highlight');
   });
 
 
