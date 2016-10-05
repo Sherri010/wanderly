@@ -13,20 +13,17 @@ $(document).ready(function(){
   var source = $('#experience-handle-bar').html();
   template = Handlebars.compile(source);
 
-
-
+//************************
   $("#userList").on('change', function() {
     currentUser = $(this).val();
-    all_listed_users =[];
-    all_listed_users = user_marker.children();
+    all_listed_users = user_marker.children(); console.log(all_listed_users)
     all_listed_users.each(function(user){
       var classList = all_listed_users[user].textContent;
-
         $(all_listed_users[user]).attr('class',classList);
     });
     user_marker.children('.'+currentUser).attr('class',currentUser +' highlight');
   });
-
+/////////////////////
 
   $.ajax({
     type: 'GET',
@@ -216,7 +213,7 @@ function getUsersGroup(){
       console.log("user list",userGroup)
       currentUser = userGroup[0];
     }
-  })
+  });
 
 }
 
@@ -289,4 +286,3 @@ function setMapOnAll(map) {
     markers[i].setMap(map);
   }
 }
-

@@ -31,14 +31,16 @@
     <div class="container control-container">
       <div class="col-md-offset-1 col-md-10" id="map"></div>
     </div>
-        <div class="user-marker">
-     <ul id="markerList">
-      <li class="Sherri"> <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"> <p>Sherri</p></li>
-      <li class="Ryan"> <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"> <p>Ryan</p></li>
-      <li class="Bob"> <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png"> <p>Bob</p></li>
-      <li class="guest"> <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"> <p>Guest</p></li>
-     </ul>
+    <!---Needs Refactoring / use templates --->
+    <div class="user-marker">
+       <ul id="markerList">
+          <li class="Sherri"> <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png"> <p>Sherri</p></li>
+          <li class="Ryan"> <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"> <p>Ryan</p></li>
+          <li class="Bob"> <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png"> <p>Bob</p></li>
+          <li class="guest highlight"> <img class="" src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"> <p>Guest</p></li>
+       </ul>
     </div>
+    <!------------------------------------------>
     <div class="controllers col-md-offset-1">
       <button type="button" class="btn btn-default" id="new-entry-btn">New Entry</button>
     </div>
@@ -199,4 +201,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"></script>
   </body>
 </html>
-

@@ -4,7 +4,7 @@ var newUsers = [];
 
 newUsers.push(
   {
-  name: 'guest',
+  name: 'Guest',
   image: '',
   marker: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
   }

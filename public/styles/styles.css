@@ -9,16 +9,20 @@ body {
   background:white;
 }
 
-/*footer {
-  background: #555555;
-  color: white;
-}*/
+select:hover { cursor: pointer;
+}
+.inline-intro {
+padding:10px;
+float: right;
+}
 
 #map {
    padding:0px;
    height:350px;
 }
-
+#userFormContainer{
+  float:left;
+}
 .container {
   width: 100vw;
   margin: 0px;
@@ -119,6 +123,9 @@ body {
 
 #userSelection {
   float: right;
+  max-width:100px;
+  overflow: hidden;
+
 }
 
 .control-container {
@@ -130,12 +137,10 @@ body {
 }
 
 select {
-  background: transparent;
-  border: 0;
+
   margin-top: 3em;
   margin-right: 7em;
   color:#800080;
-  -webkit-appearance: none;
 }
 
 #experience-form, #update-experience-form {
@@ -167,5 +172,7 @@ select {
 
 .highlight {
   font-size:18px;
-  color:blue;
+  font-weight: bold;
+  color:#39ac73;
+
 }
