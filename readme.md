@@ -24,7 +24,7 @@ http://wanderly.herokuapp.com/api
 - Mongo
 - Mongoose
 
-# Production Setup
+# Development Setup
 ### Node Setup
 ``` 
 npm init -y
