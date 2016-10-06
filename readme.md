@@ -31,11 +31,11 @@ npm init -y
 npm install --save express
 npm install --save mongoose
 npm install --save body-parser
-touch .gitignore
+touch .gitignore // to avoid tracking node modules
 ```
 ### MongoDB Setup
 ```
-brew install mongodb
+brew install mongodb //if necessary 
 mongod
 ```
 # Project Roadmap
